@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Kimyon Team</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --yellow: #F5C400;
+    --black: #111111;
+    --offwhite: #F4F2ED;
+    --dark-footer: #1A1A1A;
+    --text-mid: #444;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--offwhite);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 48px;
+    background: var(--black);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 36px; }
+  .nav-links a {
+    font-size: 0.95rem;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    letter-spacing: 0.04em;
+  }
+  .nav-links a:hover, .nav-links a.active { opacity: 1; text-decoration: underline; }
+
+  /* CUMIN HERO */
+  .cumin-hero {
+    background: var(--yellow);
+    padding: 80px 48px 72px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .cumin-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.1;
+    color: var(--black);
+    margin-bottom: 20px;
+  }
+
+  .cumin-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(0,0,0,0.75);
+    font-weight: 300;
+  }
+
+  .cumin-spice {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(5rem, 14vw, 10rem);
+    font-weight: 900;
+    color: rgba(0,0,0,0.08);
+    line-height: 1;
+    text-align: right;
+    user-select: none;
+    letter-spacing: -0.03em;
+  }
+
+  /* WHO WE ARE */
+  .who-section {
+    background: var(--offwhite);
+    padding: 96px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .who-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 56px;
+    text-align: center;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    background: #EDEAE3;
+    border-radius: 4px;
+    padding: 40px 32px;
+  }
+
+  .card-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    margin-bottom: 16px;
+  }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    color: var(--black);
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--text-mid);
+    font-weight: 300;
+  }
+
+  /* TEAM */
+  .team-section {
+    background: var(--black);
+    color: #fff;
+    padding: 96px 48px;
+  }
+
+  .team-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .team-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 56px;
+    text-align: center;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .team-card {
+    border-top: 2px solid var(--yellow);
+    padding-top: 28px;
+  }
+
+  .team-card .name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .team-card .role {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 16px;
+  }
+
+  .team-card p {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+  }
+
+  /* OFFER BANNER */
+  .offer-banner {
+    background: var(--offwhite);
+    border-top: 3px solid var(--yellow);
+    padding: 72px 48px;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .offer-banner-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .offer-tag {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+
+  .offer-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .offer-banner p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-mid);
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+
+  .btn-yellow {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 44px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-yellow:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,196,0,0.35); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark-footer);
+    padding: 48px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+    margin-top: 6px;
+  }
+
+  .footer-icons { display: flex; gap: 20px; align-items: center; }
+
+  .footer-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .footer-icons a:hover { background: var(--yellow); color: var(--black); transform: translateY(-2px); }
+  .footer-icons svg { width: 20px; height: 20px; fill: currentColor; }
+
+  @media (max-width: 900px) {
+    .cumin-hero, .cards-grid, .team-grid { grid-template-columns: 1fr; gap: 40px; }
+    nav, .who-section, .team-section, .offer-banner, footer { padding-left: 24px; padding-right: 24px; }
+    .cumin-hero { padding: 60px 24px; }
+    .cumin-spice { text-align: left; font-size: 6rem; }
+    footer { flex-direction: column; gap: 24px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Kimyon Team</a>
+  <div class="nav-links">
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- CUMIN / BRAND SECTION -->
+<div style="background: var(--yellow);">
+  <div class="cumin-hero">
+    <div class="cumin-text">
+      <h1>Small seed.<br>Big impact.</h1>
+      <p>Kimyon — the Turkish word for cumin — is a spice that punches far above its size. Tiny, unassuming, but unmistakably present in every dish it touches. That's exactly how we see our role in your business: a compact, dedicated team that makes its presence felt in every operation we support. We don't oversell ourselves. We just get the job done — with depth, warmth, and precision.</p>
+    </div>
+    <div class="cumin-spice" aria-hidden="true">Kimyon</div>
+  </div>
+</div>
+
+<!-- WHO WE ARE -->
+<div style="background: var(--offwhite); padding: 96px 48px;">
+  <div class="who-section" style="padding: 0;">
+    <h2>Who We Are</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-label">Our Services</div>
+        <h3>What do we offer?</h3>
+        <p>We specialize in call center operations for English-speaking markets — handling inbound and outbound calls for businesses across the US, Canada, UK, and Australia. We also provide web development and marketing support, including setting up campaigns when you expand into a new area.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Getting Started</div>
+        <h3>How do I get started?</h3>
+        <p>Getting started is simple. Reach out through our contact page or book a free consultation. We'll walk you through how we work, understand your needs, and build a plan tailored to your operations — no commitment required.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Our Edge</div>
+        <h3>What makes us different?</h3>
+        <p>We're a lean team that's invested in your outcomes. With hands-on experience managing operations for US-based companies, we understand what businesses actually need — not just what sounds good on paper. We're not a middleman; we're a partner.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="team-inner">
+    <h2>Meet the Team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="name">Leyla</div>
+        <div class="role">Operations Lead</div>
+        <p>With over 2 years of hands-on experience working with companies across multiple US states, Leyla manages day-to-day call center operations and client relationships. She brings the kind of real-world know-how that only comes from doing the work.</p>
+      </div>
+      <div class="team-card">
+        <div class="name">Javahir</div>
+        <div class="role">Finance & Marketing</div>
+        <p>Javahir oversees the financial reporting and marketing side of the business. She ensures campaigns are well-targeted, budgets are managed carefully, and clients always have clear visibility into their results.</p>
+      </div>
+      <div class="team-card">
+        <div class="name">Web Dev Partner</div>
+        <div class="role">Web Development</div>
+        <p>Our web development is handled by a trusted specialist with close to 5 years of experience building modern, functional websites. When clients need web support, they're in capable hands.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER BANNER -->
+<section class="offer-banner">
+  <div class="offer-banner-inner">
+    <span class="offer-tag">Limited Spots Available</span>
+    <h2>Become One of Our First 3 Clients</h2>
+    <p>We're offering our first three partners a 10-day free trial — no fees, no risk. Just a chance for you to see how we work and what we can do for your business before making any commitment.</p>
+    <a href="contact.html" class="btn-yellow">Claim Your Free Trial</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Kimyon Team</div>
+    <div class="footer-copy">© 2025 Kimyon Team. All rights reserved.</div>
+  </div>
+  <div class="footer-icons">
+    <a href="mailto:kimyonteam@gmail.com" title="Email">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+    </a>
+    <a href="https://wa.me/15555555555" title="WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a href="https://linkedin.com/company/kimyonteam" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
